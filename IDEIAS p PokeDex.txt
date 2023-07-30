@@ -1,0 +1,4 @@
+IDEIAS p PokeDex: 
+¹BOX com CARD de evolução do POKEMON!
+- dados.abilities.forms.0[name]
+Dentro do poke existe uma URL, da pra trabalhar com ela
