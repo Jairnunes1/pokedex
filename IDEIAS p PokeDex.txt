@@ -1,0 +1,21 @@
+IDEIAS p PokeDex: 
+¹BOX com CARD de evolução do POKEMON!
+- dados.forms.0[name]
+Dentro do poke existe uma URL, da pra trabalhar com ela
+
+Sobre a HP do POKEMON:
+Logica: 0 a 100
+ Caso o pokemon tenha < 20
+  1 coração
+  4 Cinzas
+ Caso mais de 20 e < de 40
+  2 coraçoes
+  3 Cinzas
+ Caso Mais de 40 e < de 60
+  3 Coraçoes
+  2 Cinzas
+ Caso Mais de 60 e < de 80
+  4 Coraçoes
+  1 Cinza
+ Caso mais de 80
+  5 Coraçõe
