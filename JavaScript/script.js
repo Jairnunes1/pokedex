@@ -2,13 +2,10 @@ let descricaoTipo = {
   fire: "Com as suas Rajadas de Fogo, esse tipo de Pokémon, apesar de não ser um dos melhores e o mais preferidos dentre os treinadores. Eles, quando usam um ataque, deixam queimaduras no corpo do adversário, fazendo-o ficar mais fraco muito rápido. ",
   electric:
     "Focado em dano elétrico, os Pokémon desse tipo possuem alta velocidade, mas são vulneráveis a ataques de terra. Seus ataques são fortes contra água e voador, o que os torna úteis em batalhas contra esses tipos.",
-
   water:
     "Cerca de ¼ dos Pokémons são aquáticos. Os Pokémons do tipo água nadam muito bem e muito rápido e os principais ataques desse tipo são a Bomba Hidráulica (Hidro Pump) e a Dança da Chuva (Rain Dance).",
-
   grass:
     "Eles são geralmente vistos em jardins e campos. Eles tem como principais características, o poder de alterar os Status dos seus adversários, deixando-o dormindo, paralisado ou envenenado.",
-
   flying:
     "Os Pokémons que tem como o primeiro tipo voador, geralmente tem como segundo tipo o Normal. Umas das principais tecnicas deste tipo é o Ataque-Aereo(Sky Atack) e Wing-Atack(Ataque de Asas).",
   fighting:
@@ -35,6 +32,10 @@ let descricaoTipo = {
   normal:
     "Pokémons do tipo normal tem como principais características ataques corporais. Mas além desses, esses tipos de Pokémon podem aprender ataques fortes. Possuem uma grande variedade de ataques e são fracos apenas contra um tipo de ataque: Lutador (Fighting).",
 };
+let fraquezasPoke = {
+  fire: "water, ground"
+};
+
 
 const sugestao = document.querySelector(".sugestao");
 const mostrarDicas = document.querySelector(".boxSugestoes");
@@ -87,8 +88,8 @@ function processarInput(dados) {
   );
   pokeName.innerHTML = dados.name;
   pokeTipo.innerHTML = tipo;
-  informacoesTipo.innerHTML = descricaoTipo[tipo]
-  pokeTipo.setAttribute("class", `poke-tipo ${tipo}`)
+  informacoesTipo.innerHTML = descricaoTipo[tipo];
+  pokeTipo.setAttribute("class", `poke-tipo ${tipo}`);
 
   function adicionarDivAposPrimeiroFilho() {
     let pokeHeart = document.querySelector(".pokeHealts");
