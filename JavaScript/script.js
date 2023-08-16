@@ -35,6 +35,28 @@ let descricaoTipo = {
   normal:
     "Pokémons do tipo normal tem como principais características ataques corporais. Mas além desses, esses tipos de Pokémon podem aprender ataques fortes. Possuem uma grande variedade de ataques e são fracos apenas contra um tipo de ataque: Lutador (Fighting).",
 };
+let fraquezasTipo = {
+  fire: ["rock", "water"],
+  electric: ["rock"],
+  water: ["eletric", "grass"],
+  grass: ["ice", "water"],
+  flying: ["eletric", "ice", "rock"],
+  fighting: ["fairy", "flying", "psychic"],
+  poison: ["ground", "psychic"],
+  ground: ["ice", "water"],
+  rock: ["fighting", "water", "steel"],
+  psychic: ["bug", "fairy", "fighting"],
+  ice: ["fighting", "fire", "rock", "steel"],
+  bug: ["fire", "flying", "rock"],
+  ghost: ["dark", "ghost"],
+  steel: ["fighting", "fire", "normal"],
+  dragon: ["dragon", "fairy", "ice"],
+  dark: ["bug", "fairy", "fighting"],
+  fairy: ["steel", "poison"],
+  normal: ["fighting"],
+};
+
+console.log(fraquezasTipo);
 
 const sugestao = document.querySelector(".sugestao");
 const mostrarDicas = document.querySelector(".boxSugestoes");
@@ -75,9 +97,9 @@ let pokeTipo = document.querySelector(".poke-tipo");
 let pokeWeight = document.querySelector(".poke-peso");
 let pokeHeight = document.querySelector(".poke-altura");
 let informacoesTipo = document.querySelector(".caracteristicas");
+const pokeFraquezas = document.querySelector(".poke-estilo");
 
 let pokeHeart = document.querySelector(".pokeHealts");
-// console.log(pokeHeart);
 
 function processarInput(dados) {
   let tipo = dados.types[0].type.name;
@@ -87,8 +109,16 @@ function processarInput(dados) {
   );
   pokeName.innerHTML = dados.name;
   pokeTipo.innerHTML = tipo;
-  informacoesTipo.innerHTML = descricaoTipo[tipo]
-  pokeTipo.setAttribute("class", `poke-tipo ${tipo}`)
+  informacoesTipo.innerHTML = descricaoTipo[tipo];
+  pokeTipo.setAttribute("class", `poke-tipo ${tipo}`);
+
+  if(tipo !== fraquezasTipo[tipo]){
+    pokeFraquezas.innerHTML = fraquezasTipo[tipo]
+    pokeFraquezas.setAttribute('class', `poke-tipo ${fraquezasTipo[tipo]}`)
+  }else{
+    console.log('deu ruim')
+  };
+
 
   function adicionarDivAposPrimeiroFilho() {
     let pokeHeart = document.querySelector(".pokeHealts");
@@ -102,8 +132,6 @@ function processarInput(dados) {
   }
   adicionarDivAposPrimeiroFilho();
 
-  // Para dia 31/12 fazer a logica para adicionar os coraçoes de acordo com a quanditade de HP
-
   let heart = document.querySelector(".healts");
   if (dados.stats[0].base_stat < 20) {
     heart.innerHTML = `
@@ -112,21 +140,21 @@ function processarInput(dados) {
     <img src="./Img/svgs/Heart-SVG-Icon-s9fd.svg" alt="" width="24px" height="24px">
     <img src="./Img/svgs/Heart-SVG-Icon-s9fd.svg" alt="" width="24px" height="24px">
     <img src="./Img/svgs/Heart-SVG-Icon-s9fd.svg" alt="" width="24px" height="24px">`;
-  } else if (dados.stats[0].base_stat < 40) {
+  } else if (dados.stats[0].base_stat < 41) {
     heart.innerHTML = `
     <img src="./Img/svgs/Red-Like-Icon-09uh.svg" alt="" width="24px" height="24px">
     <img src="./Img/svgs/Red-Like-Icon-09uh.svg" alt="" width="24px" height="24px">
     <img src="./Img/svgs/Heart-SVG-Icon-s9fd.svg" alt="" width="24px" height="24px">
     <img src="./Img/svgs/Heart-SVG-Icon-s9fd.svg" alt="" width="24px" height="24px">
     <img src="./Img/svgs/Heart-SVG-Icon-s9fd.svg" alt="" width="24px" height="24px">`;
-  } else if (dados.stats[0].base_stat < 60) {
+  } else if (dados.stats[0].base_stat < 61) {
     heart.innerHTML = `
     <img src="./Img/svgs/Red-Like-Icon-09uh.svg" alt="" width="24px" height="24px">
     <img src="./Img/svgs/Red-Like-Icon-09uh.svg" alt="" width="24px" height="24px">
     <img src="./Img/svgs/Red-Like-Icon-09uh.svg" alt="" width="24px" height="24px">
     <img src="./Img/svgs/Heart-SVG-Icon-s9fd.svg" alt="" width="24px" height="24px">
     <img src="./Img/svgs/Heart-SVG-Icon-s9fd.svg" alt="" width="24px" height="24px">`;
-  } else if (dados.stats[0].base_stat < 80) {
+  } else if (dados.stats[0].base_stat < 81) {
     heart.innerHTML = `
     <img src="./Img/svgs/Red-Like-Icon-09uh.svg" alt="" width="24px" height="24px">
     <img src="./Img/svgs/Red-Like-Icon-09uh.svg" alt="" width="24px" height="24px">
@@ -141,14 +169,13 @@ function processarInput(dados) {
     <img src="./Img/svgs/Red-Like-Icon-09uh.svg" alt="" width="24px" height="24px">
     <img src="./Img/svgs/Red-Like-Icon-09uh.svg" alt="" width="24px" height="24px">`;
   }
+
   pokeId.innerHTML = `ID: ${dados.id}`;
   pokeWeight.innerHTML = `${dados.weight / 10} kg`;
   pokeHeight.innerHTML =
-    dados.height < 10 ? `0.${dados.height} m` : `${dados.height} m`;
+    dados.height < 10 ? `0.${dados.height} m` : `${dados.height / 10} m`;
 
-  // if(pokeHeight < 10){
-  //   pokeHeight.innerHTML =  `0.${dados.weight} kg`
-  // }
-
-  console.log(dados);
+  if (pokeHeight < 10) {
+    pokeHeight.innerHTML = `0.${dados.weight} kg`;
+  }
 }
