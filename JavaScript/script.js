@@ -32,6 +32,26 @@ let descricaoTipo = {
   normal:
     "Pokémons do tipo normal tem como principais características ataques corporais. Mas além desses, esses tipos de Pokémon podem aprender ataques fortes. Possuem uma grande variedade de ataques e são fracos apenas contra um tipo de ataque: Lutador (Fighting).",
 };
+let fraquezasTipo = {
+  fire: ["rock", "water"],
+  electric: ["rock"],
+  water: ["eletric", "grass"],
+  grass: ["ice", "water"],
+  flying: ["eletric", "ice", "rock"],
+  fighting: ["fairy", "flying", "psychic"],
+  poison: ["ground", "psychic"],
+  ground: ["ice", "water"],
+  rock: ["fighting", "water", "steel"],
+  psychic: ["bug", "fairy", "fighting"],
+  ice: ["fighting", "fire", "rock", "steel"],
+  bug: ["fire", "flying", "rock"],
+  ghost: ["dark", "ghost"],
+  steel: ["fighting", "fire", "normal"],
+  dragon: ["dragon", "fairy", "ice"],
+  dark: ["bug", "fairy", "fighting"],
+  fairy: ["steel", "poison"],
+  normal: ["fighting"],
+};
 
 const sugestao = document.querySelector(".sugestao");
 const mostrarDicas = document.querySelector(".boxSugestoes");
@@ -55,8 +75,8 @@ function consultar() {
       processarInput(resultado);
     })
     .catch((error) => {
-      // alert('Nome ou ID inexistente!!')
-      console.log("Deu Erro");
+      alert('Nome ou ID inexistente!!')
+      // console.log("Deu Erro");
     });
 }
 
@@ -76,7 +96,7 @@ const pokeFraquezas = document.querySelector(".poke-estilo");
 
 let pokeHeart = document.querySelector(".pokeHealts");
 
-const weakness = document.querySelector(".weakness")
+const weakness = document.querySelector(".weakness");
 
 function processarInput(dados) {
   let tipo = dados.types[0].type.name;
@@ -86,8 +106,21 @@ function processarInput(dados) {
   );
   pokeName.innerHTML = dados.name;
   pokeTipo.innerHTML = tipo;
-  informacoesTipo.innerHTML = descricaoTipo[tipo]
-  pokeTipo.setAttribute("class", `poke-tipo ${tipo}`)
+  informacoesTipo.innerHTML = descricaoTipo[tipo];
+  pokeTipo.setAttribute("class", `poke-tipo ${tipo}`);
+
+  while (weakness.firstChild) {
+    weakness.removeChild(weakness.firstChild);
+  }
+  fraquezasTipo[tipo].forEach((element) => {
+    let spanDoElemento = document.createElement("span");
+    weakness.appendChild(spanDoElemento);
+
+    spanDoElemento.setAttribute("class", `poke-estilo ${element}`);
+    spanDoElemento.innerHTML = element;
+
+    console.log(element);
+  });
 
   function adicionarDivAposPrimeiroFilho() {
     let pokeHeart = document.querySelector(".pokeHealts");
