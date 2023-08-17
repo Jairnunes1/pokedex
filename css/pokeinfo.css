@@ -159,8 +159,7 @@
 .poke-estilo {
   display: inline-block;
   padding: 10px 20px;
-  background-color: rgb(179, 141, 35);
   border-radius: 10px;
   text-transform: uppercase;
-  margin-top: 15px;
+  margin: 10px 2px 0px 2px;
 }

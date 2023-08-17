@@ -101,6 +101,8 @@ const pokeFraquezas = document.querySelector(".poke-estilo");
 
 let pokeHeart = document.querySelector(".pokeHealts");
 
+const weakness = document.querySelector(".weakness")
+
 function processarInput(dados) {
   let tipo = dados.types[0].type.name;
   pokemonImagem.setAttribute(
@@ -112,13 +114,19 @@ function processarInput(dados) {
   informacoesTipo.innerHTML = descricaoTipo[tipo];
   pokeTipo.setAttribute("class", `poke-tipo ${tipo}`);
 
-  if(tipo !== fraquezasTipo[tipo]){
-    pokeFraquezas.innerHTML = fraquezasTipo[tipo]
-    pokeFraquezas.setAttribute('class', `poke-tipo ${fraquezasTipo[tipo]}`)
-  }else{
-    console.log('deu ruim')
-  };
+  while (weakness.firstChild) {
+    weakness.removeChild(weakness.firstChild);
+}
+  fraquezasTipo[tipo].forEach(element => {
+   let spanDoElemento = document.createElement("span")
+   weakness.appendChild(spanDoElemento)
 
+   
+   spanDoElemento.setAttribute("class", `poke-estilo ${element}`)
+   spanDoElemento.innerHTML = element
+
+    console.log(element)
+  });
 
   function adicionarDivAposPrimeiroFilho() {
     let pokeHeart = document.querySelector(".pokeHealts");
