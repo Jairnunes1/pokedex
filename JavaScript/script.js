@@ -80,8 +80,8 @@ function consultar() {
       processarInput(resultado);
     })
     .catch((error) => {
-      // alert('Nome ou ID inexistente!!')
-      console.log("Deu Erro");
+      alert('Nome ou ID inexistente!!')
+      // console.log("Deu Erro");
     });
 }
 
@@ -101,7 +101,7 @@ const pokeFraquezas = document.querySelector(".poke-estilo");
 
 let pokeHeart = document.querySelector(".pokeHealts");
 
-const weakness = document.querySelector(".weakness")
+const weakness = document.querySelector(".weakness");
 
 function processarInput(dados) {
   let tipo = dados.types[0].type.name;
@@ -116,16 +116,15 @@ function processarInput(dados) {
 
   while (weakness.firstChild) {
     weakness.removeChild(weakness.firstChild);
-}
-  fraquezasTipo[tipo].forEach(element => {
-   let spanDoElemento = document.createElement("span")
-   weakness.appendChild(spanDoElemento)
+  }
+  fraquezasTipo[tipo].forEach((element) => {
+    let spanDoElemento = document.createElement("span");
+    weakness.appendChild(spanDoElemento);
 
-   
-   spanDoElemento.setAttribute("class", `poke-estilo ${element}`)
-   spanDoElemento.innerHTML = element
+    spanDoElemento.setAttribute("class", `poke-estilo ${element}`);
+    spanDoElemento.innerHTML = element;
 
-    console.log(element)
+    console.log(element);
   });
 
   function adicionarDivAposPrimeiroFilho() {
