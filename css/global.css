@@ -28,3 +28,82 @@ dl, dt{
 dd{
   font-family: 'comic sans ms';
 }
+:root {
+  --cor-1: #f7f7f7;
+  --cor-2: #161616;
+}
+.electric {
+  background-color: rgb(234, 219, 58);
+  color: var(--cor-1);
+}
+.fire {
+  background-color: rgb(251, 113, 0);
+  color: var(--cor-1);
+}
+.water {
+  background-color: rgb(47, 175, 210);
+  color: var(--cor-1);
+}
+.grass,
+.poison {
+  background-color: rgb(43, 208, 31);
+  color: #161616;
+}
+.flying {
+  background-image: linear-gradient(
+    360deg,
+    rgb(133, 146, 155) 50%,
+    rgb(30, 130, 237) 50%
+  );
+}
+.fighting {
+  background-color: rgb(185, 126, 30);
+  color: var(--cor-1);
+}
+.ground {
+  background: linear-gradient(#f7de3f 50%, #ab9842 50%);
+}
+.psychic {
+  background: #e420ad;
+  color: var(--cor-1);
+}
+
+.rock , .normal {
+  background-color: rgb(146, 109, 50);
+  color: var(--cor-1);
+}
+
+.ice {
+  background: #1289b8;
+  color: var(--cor-2);
+}
+.bug {
+  background: #53ab35;
+  color: var(--cor-2);
+}
+.ghost {
+  background: #862ce1;
+  color: var(--cor-1);
+}
+.steel {
+  background: #6c8c7f;
+  color: var(--cor-2);
+}
+.dragon {
+  background: linear-gradient(#0e9ad5 50%, #e07509 50%);
+  color: var(--cor-1);
+}
+.fairy {
+  background: #ec86cf;
+  color: var(--cor-2);
+}
+.dark {
+  background: #757575;
+  color: var(--cor-1);
+}
+.ativo {
+  display: block;
+}
+.desativado{
+  display: none;
+}

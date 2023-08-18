@@ -89,10 +89,12 @@ let pokemonImagem = document.querySelector(".pokefront");
 let pokeName = document.querySelector(".pokeName");
 let pokeId = document.querySelector(".poke-id");
 let pokeTipo = document.querySelector(".poke-tipo");
+let divFraquezas = document.querySelector(".desativado")
 let pokeWeight = document.querySelector(".poke-peso");
 let pokeHeight = document.querySelector(".poke-altura");
 let informacoesTipo = document.querySelector(".caracteristicas");
 const pokeFraquezas = document.querySelector(".poke-estilo");
+const life = document.querySelector(".hp")
 
 let pokeHeart = document.querySelector(".pokeHealts");
 
@@ -173,11 +175,23 @@ function processarInput(dados) {
   }
 
   pokeId.innerHTML = `ID: ${dados.id}`;
-  pokeWeight.innerHTML = `${dados.weight / 10} kg`;
+  life.innerHTML = "HP"
+  pokeWeight.innerHTML = `Peso ${dados.weight / 10} kg`;
   pokeHeight.innerHTML =
-    dados.height < 10 ? `0.${dados.height} m` : `${dados.height / 10} m`;
+    dados.height < 10 ? `Altura 0.${dados.height} m` : `Altura ${dados.height / 10} m`;
 
   if (pokeHeight < 10) {
     pokeHeight.innerHTML = `0.${dados.weight} kg`;
   }
+
+  function alterandoDOM(){
+
+    divFraquezas.setAttribute('class', "poke-fraquezas")
+    pokeWeight.classList.add("detail")
+    pokeHeight.classList.add("detail")
+
+  }
+  alterandoDOM()
+
+
 }
