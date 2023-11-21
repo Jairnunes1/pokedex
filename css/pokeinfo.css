@@ -1,15 +1,87 @@
-
 .pokemon {
   display: grid;
   grid-template-columns: max-content auto;
   gap: 70px;
   margin-top: 100px;
   justify-content: center;
-  background-image: url(../Img/Conteiner-bg.png);
+  background-image: url(/Img/fundo\ dbo.png);
   background-color: #d4d4d4;
-  border-radius: 10px ;
+  border-radius: 2px ;
   padding: 30px;
+  position: relative;
+  overflow: hidden;
 }
+/*Borda e animações */
+.pokemon .border{
+  position: absolute;
+}
+.pokemon .border:first-child{
+  padding: 2px;
+  top: 0px;
+  left: 0px;
+  width: 100%;
+  background: linear-gradient(to right, transparent, var(--borda-cor));
+  animation: animarBorda1 2s linear infinite;
+}
+
+.pokemon .border:nth-child(2){
+  padding: 2px;
+  right: 0;
+  height: 100%;
+  background: linear-gradient(to bottom, transparent, var(--borda-cor));
+  animation: animarBorda2 2s linear infinite;
+  animation-delay: 1s;
+}
+.pokemon .border:nth-child(3){
+  padding: 2px;
+  bottom: 0px;
+  width: 100%;
+  background: linear-gradient(to left, transparent, var(--borda-cor));
+  animation: animarBorda3 2s linear infinite;
+  animation-delay: 2s;
+}
+.pokemon .border:nth-child(4){
+  padding: 2px;
+  left: 0;
+  height: 100%;
+  background: linear-gradient(to top, transparent, var(--borda-cor));
+  animation: animarBorda4 2s linear infinite;
+  animation-delay: 1s;
+}
+
+@keyframes animarBorda1 {
+  0% {
+    transform: translateX(-100%);
+  }
+  100%{
+    transform: translateX(100%);
+  }
+}
+@keyframes animarBorda2 {
+  0% {
+    transform: translateY(-100%);
+  }
+  100%{
+    transform: translateY(100%);
+  }
+}
+@keyframes animarBorda3 {
+  100% {
+    transform: translateX(-100%);
+  }
+  0%{
+    transform: translateX(100%);
+  }
+}
+@keyframes animarBorda4 {
+  100% {
+    transform: translateY(-100%);
+  }
+  0%{
+    transform: translateY(100%);
+  }
+}
+
 .poke-img {
   width: 300px;
   height: 300px;

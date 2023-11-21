@@ -1,7 +1,6 @@
 body {
-  /* background-image: url(../Img/Conteiner-bg.png); */
   height: 100vh;
-  background: url(../Img/pokefund.png) no-repeat;
+  background: url(../Img/Conteiner-bg.png);
   background-size: cover;
 }
 

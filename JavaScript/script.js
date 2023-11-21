@@ -35,9 +35,9 @@ let descricaoTipo = {
 let fraquezasTipo = {
   fire: ["rock", "water"],
   electric: ["rock"],
-  water: ["eletric", "grass"],
+  water: ["electric", "grass"],
   grass: ["ice", "water"],
-  flying: ["eletric", "ice", "rock"],
+  flying: ["electric", "ice", "rock"],
   fighting: ["fairy", "flying", "psychic"],
   poison: ["ground", "psychic"],
   ground: ["ice", "water"],

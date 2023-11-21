@@ -4,7 +4,6 @@
   margin: 0px;
   padding: 0px;
   box-sizing: border-box;
-  /* background-image: url(/Img/fundo\ dbo.png); */
   font-family: sans-serif;
 }
 ol,
@@ -31,6 +30,8 @@ dd{
 :root {
   --cor-1: #f7f7f7;
   --cor-2: #161616;
+
+  --borda-cor: #F1D279 ;
 }
 .electric {
   background-color: rgb(234, 219, 58);
