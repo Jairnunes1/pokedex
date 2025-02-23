@@ -4,8 +4,6 @@ body {
   background-size: cover;
   animation: bg-animation 10s infinite linear;
 }
-
-""
 @keyframes bg-animation {
  0% {background-position: 0% 0%;}
  50% {background-position: 100% 100%;}
