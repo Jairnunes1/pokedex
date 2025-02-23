@@ -1,7 +1,15 @@
 body {
   height: 100vh;
-  background: url(../Img/Conteiner-bg.png);
+  background: url(../Img/Conteiner-bg.png) no-repeat center center fixed;
   background-size: cover;
+  animation: bg-animation 10s infinite linear;
+}
+
+""
+@keyframes bg-animation {
+ 0% {background-position: 0% 0%;}
+ 50% {background-position: 100% 100%;}
+ 100% {background-position: 0% 0%;}
 }
 
 .conteudo {
